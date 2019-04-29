@@ -29,8 +29,27 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
+
+    public function a_user_can_view_a_project()
+    {
+        $this->WithoutExceptionHandling();
+
+        $project = factory('App\Project')->create();
+
+        $this->get($projects->path())
+                ->assertSee($project->title)
+                ->assertSee($project->description);
+    }
+
+    /** @test */
     public function a_project_requires_a_title()
     {
+
+        // To avoid this error ---TypeError: Argument 2 passed to Illuminate\Foundation\Testing\TestCase::post() must be of the type array, object given, called in /Users/adedamolaogundeinde/desktop/laravel-codes/tests/Feature/ProjectsTest.php----we use "raw" cos
+        // create method will build up the attributes and save to the database
+        // make method will only build up the attributes especially as object
+
+        // raw on the other hand will build up the attributes and save them as array
         $attributes = factory('App\Project')->raw(['title' => '']);
         $this->post('/projects', $attributes)->assertSessionHasErrors('title');
     }
