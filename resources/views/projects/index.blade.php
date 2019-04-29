@@ -5,6 +5,7 @@
 </head>
 <body>
 
+	<!-- Just so to add the exact comment for lesson 4 -->
 	<h1>BIRDBOARD</h1>
 	<ul>
 		@forelse ($projects as $project)
