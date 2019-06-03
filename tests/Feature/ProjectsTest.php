@@ -14,7 +14,7 @@ class ProjectsTest extends TestCase
     /** @test */
     public function a_user_can_create_a_project()
     {
-        $this->WithoutExceptionHandling();
+        // $this->WithoutExceptionHandling();
 
         $attributes = [
             'title' => $this->faker->sentence,
@@ -59,5 +59,14 @@ class ProjectsTest extends TestCase
     {
         $attributes = factory('App\Project')->raw(['description' => '']);
         $this->post('/projects', [])->assertSessionHasErrors('description');
+    }
+
+    /** @test */
+    public function a_project_requires_an_owner()
+    {
+        // $this->WithoutExceptionHandling();
+
+        $attributes = factory('App\Project')->raw(['owner_id'=> null]);
+        $this->post('/projects', [])->assertSessionHasErrors('owner_id');
     }
 }
