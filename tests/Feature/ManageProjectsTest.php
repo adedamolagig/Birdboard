@@ -26,7 +26,7 @@ class ManageProjectsTest extends TestCase
         //code below is re-enphasizing the above
         $this->get('/projects/create')->assertRedirect('login');
 
-        //Tryint to access a project specifically, you should be redirected.
+        //Trying to access a project specifically, you should be redirected.
         $this->get($project->path())->assertRedirect('login');
 
         //Trying to persist a project to the database
