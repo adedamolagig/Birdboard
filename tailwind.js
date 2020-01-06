@@ -3,7 +3,8 @@ module.exports = {
     extend: {
     	colors: {
 		  	'grey-light': '#F5F6F9',
-		  	grey: 'rgba(0, 0, 0, 0.4)'
+		  	grey: 'rgba(0, 0, 0, 0.4)',
+		  	'blue-light': '#8ae2fe'
 		  },
 		  width: {
 	      	'1/3': '33.33333%',
